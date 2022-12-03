@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block index %}
+      
+    <h1 class="bg-danger text-dark text-center">Employee Data</h1>
+     <table class="table table-hovered">
+        <tr>
+            <th>Eid</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Experience</th>
+            <th></th>
+        </tr>
+        {%for i in data%}
+        <tr>
+            <td>{{i.eid}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.experience}}</td>
+            <td>
+                <a href="{% url 'delemp' i.eid%}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'editemp' i.eid %}" class="btn btn-warning ml-3">Edit</a>
+                
+            </td>
+        </tr>
+        {%endfor%}
+     </table>
+     {% endblock index %}

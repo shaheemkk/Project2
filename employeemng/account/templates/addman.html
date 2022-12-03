@@ -1,0 +1,52 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block index %}
+
+    <h1 class="bg-danger">Add Manager</h1>
+     <form action="" method="post" enctype="multipart/form-data" class="text-center">     <!--  #to submit file -enctypr -->
+        {%csrf_token%}
+
+      <!-- GridSystem -->
+      <div class="row">
+      <div class="col-6">
+        <div class="card" style="width:400px">
+          <img class="card-img-top" width="400px" src="{% static 'images/pro.png.png' %}" alt="Card image">
+          <div class="card-body">
+
+           <div class="fieldWrapper">
+            {{form.pic.errors}}
+            <label for="{{ form.pic.id_for_label }}">Select your Profile Picture</label>
+            {{form.pic}}
+            </div>
+           </div>
+          </div>
+        </div>
+
+       <div class="col-6">
+       <div class="fieldWrapper">
+       {{form.first_name.errors}}
+      <label for="{{ form.first_name.id_for_label }}">Enter your Firstname</label>
+      {{form.first_name}}
+     </div>
+     <div class="fieldWrapper">
+       {{form.last_name.errors}}
+       <label for="{{ form.last_name.id_for_label }}">Enter your Lastname</label>
+       {{form.last_name}}
+      </div>
+      <div class="fieldWrapper">
+       {{form.email.errors}}
+       <label for="{{ form.email.id_for_label }}">Enter your Email</label>
+       {{form.email}}
+      </div>
+      <div class="fieldWrapper">
+       {{form.phone.errors}}
+       <label for="{{ form.phone.id_for_label }}">Enter your Number</label>
+       {{form.phone}}                                        
+      </div>  
+      <button class="btn btn-success">Add</button>
+       </div>
+      </div>
+
+     </form>
+     {% endblock index %}

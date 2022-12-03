@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block index %}
+<h1 class="bg-warning text-dark text-center">Home</h1>
+    {%if messages%}
+      {%for msg in messages%}
+      {%if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{msg}}</strong> 
+      </div>
+      {%else%}
+       <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{msg}}</strong> 
+      </div>    
+        {%endif%}
+        {%endfor%}   
+      {%endif%}
+    <!-- <a href="{% url 'reg' %}">Registration</a><br>
+    <a href="{% url 'vemp' %}">Employees</a><br>
+    <a href="{% url 'dept' %}">Add Department</a><br>
+    <a href="{% url 'depret' %}">Department List</a><br>
+    <a href="{% url 'addman' %}">Add Managers</a><br>
+    <a href="{% url 'viewman' %}">View Managers</a> -->
+{% endblock index %}
